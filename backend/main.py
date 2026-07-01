@@ -1,20 +1,28 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-import os
 
 from backend.database import SessionLocal, engine, Base
 from backend import models
 
+# Create tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+
+# ---------------- DB SESSION ----------------
 def get_db():
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
+
+
+# ---------------- ROOT ROUTE ----------------
+@app.get("/")
+def home():
+    return {"message": "FastAPI is running successfully 🚀"}
 
 
 # ---------------- CREATE ----------------
@@ -60,13 +68,3 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):
     db.commit()
 
     return {"message": "User deleted successfully"}
-    import os
-import uvicorn
-
-port = int(os.environ.get("PORT", 8000))
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=port)
-    @app.get("/")
-def home():
-    return {"message": "FastAPI is running successfully 🚀"}
