@@ -50,7 +50,7 @@ multi-tier-app/
 How to Run Locally
 
 Step 1: Clone the repository
-git clone https://github.com/your-username/fastapi-crud-project.git
+git clone https://github.com/student-ishikakamble/multi-tier-fastapi-docker.git
 
 Step 2: Navigate to backend folder
 cd fastapi-crud-project/backend
@@ -101,7 +101,7 @@ GitHub project structuring
 
 Author
 
-Your Name
-GitHub:
+Your Name: Ishika Kamble
+GitHub:https://github.com/student-ishikakamble/multi-tier-fastapi-docker.git
 
 
